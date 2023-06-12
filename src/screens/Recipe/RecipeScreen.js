@@ -16,6 +16,10 @@ import {
 } from "../../data/MockDataAPI";
 import BackButton from "../../components/BackButton/BackButton";
 import ViewIngredientsButton from "../../components/ViewIngredientsButton/ViewIngredientsButton";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import axios from "axios";
+import { Alert } from "react-native";
+import { API_DOMAIN } from "../../../config";
 
 const { width: viewportWidth } = Dimensions.get("window");
 
@@ -56,6 +60,23 @@ export default function RecipeScreen(props) {
     var name = getIngredientName(item);
     let ingredient = item;
     navigation.navigate("Ingredient", { ingredient, name });
+  };
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`${API_DOMAIN}/delete-recipe-id/${id}`)
+      .then(() => {
+        navigation.navigate("Home");
+        Alert.alert("Deleted", "Recipe deleted", [{ text: "OK" }]);
+      })
+      .catch(() => {
+        navigation.navigate("Home");
+        Alert.alert("Error", "Recipe not deleted", [{ text: "OK" }]);
+      });
+  };
+
+  const handleEdit = (item) => {
+    navigation.navigate("Update Recipe", { item });
   };
 
   return (
@@ -121,7 +142,24 @@ export default function RecipeScreen(props) {
               navigation.navigate("IngredientsDetails", { ingredients, title });
             }}
           />
+          <TouchableOpacity onPress={() => handleDelete(item.recipeId)}>
+            <View style={styles.btnContainer}>
+              <Text style={styles.btnText}>Delete</Text>
+            </View>
+          </TouchableOpacity>
         </View>
+
+        <View style={styles.infoContainer}>
+          <TouchableOpacity
+            underlayColor="rgba(73,182,77,0.9)"
+            onPress={() => handleEdit(item)}
+          >
+            <View style={styles.btnContainerEdit}>
+              <Text style={styles.btnTextEdit}>Edit</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.infoContainer}>
           <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
         </View>

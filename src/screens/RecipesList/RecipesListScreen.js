@@ -1,13 +1,27 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useContext } from "react";
 import { FlatList, Text, View, TouchableHighlight, Image } from "react-native";
 import styles from "./styles";
-import { getRecipes, getCategoryName } from "../../data/MockDataAPI";
+import { getCategoryName } from "../../data/MockDataAPI";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import RecipesContext from "../../DataContext/RecipesContext";
 
 export default function RecipesListScreen(props) {
   const { navigation, route } = props;
 
+  const recipes = useContext(RecipesContext);
+
   const item = route?.params?.category;
+
+  const getRecipes = (categoryId) => {
+    const recipesArray = [];
+    recipes.map((data) => {
+      if (data.categoryId == categoryId) {
+        recipesArray.push(data);
+      }
+    });
+    return recipesArray;
+  };
+
   const recipesArray = getRecipes(item.id);
 
   useLayoutEffect(() => {

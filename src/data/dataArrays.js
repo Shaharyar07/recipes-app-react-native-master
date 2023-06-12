@@ -372,13 +372,13 @@ export const ingredients = [
     ingredientId: 5,
     name: "Celery salt",
     photo_url:
-      "https://www.hasiroglugurme.com/images/urunler/Koftelik-Esmer-Bulgur-resim-297.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/1/14/Celery_Salt%2C_Penzeys_Spices%2C_Arlington_Heights_MA.jpg",
   },
   {
     ingredientId: 6,
     name: "Dried sage",
     photo_url:
-      "https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Esxjvv7/super-slow-motion-dried-sage-falling-on-white-background_n1xg2gxzg__F0000.png",
+      "https://img.freepik.com/premium-photo/dried-sage-leaves-isolated-white-background-salvia-officinalis_638381-41.jpg?w=1380",
   },
   {
     ingredientId: 7,
@@ -390,7 +390,7 @@ export const ingredients = [
     ingredientId: 8,
     name: "Ground allspice",
     photo_url:
-      "https://www.savoryspiceshop.com/content/mercury_modules/cart/items/2/6/9/2695/allspice-berries-jamaican-ground-1.jpg",
+      "https://images.squarespace-cdn.com/content/v1/55e0b053e4b03c4493837190/1533038069898-IZ2VK3DTDFSRQNWPEGOS/Allspice+Ground.jpg?format=750w",
   },
   {
     ingredientId: 9,
@@ -419,13 +419,13 @@ export const ingredients = [
     ingredientId: 13,
     name: "Brown sugar",
     photo_url:
-      "https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/BALQTtekliuc6iu4u/rotating-brown-sugar-in-a-white-container-on-white-background_sis0xtbyl_thumbnail-full01.png",
+      "https://previews.123rf.com/images/yatomo/yatomo1109/yatomo110900230/10682754-brown-sugar.jpg",
   },
   {
     ingredientId: 14,
     name: "Kosher salt",
     photo_url:
-      "https://d1yn1kh78jj1rr.cloudfront.net/image/preview/r64-6MxPQjlatyfjp/storyblocks-top-view-of-ceramic-salt-cellar-with-coarse-grained-sea-salt-isolated-on-white-background_SPzKionPuV_SB_PM.jpg",
+      "https://opt.toiimg.com/recuperator/img/toi/m-66772936/66772936.jpg&width=500&resizemode=4",
   },
   {
     ingredientId: 15,
@@ -443,12 +443,13 @@ export const ingredients = [
     ingredientId: 17,
     name: "Quarts neutral oil",
     photo_url:
-      "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2Fgettyimages-464433694_0.jpg%3Fitok%3DK42YR2GV&w=400&c=sc&poi=face&q=85",
+      "https://www.sbs.com.au/food/sites/sbs.com.au.food/files/styles/full/public/what_are_considered_to_be_neutral_oils_in_cooking.jpg?itok=ntimt6v3",
   },
   {
     ingredientId: 18,
     name: "Water",
-    photo_url: "https://ak1.picdn.net/shutterstock/videos/829561/thumb/11.jpg",
+    photo_url:
+      "https://img.freepik.com/free-photo/fresh-water-texture-background-transparent-liquid_53876-142911.jpg",
   },
   {
     ingredientId: 19,
@@ -477,7 +478,7 @@ export const ingredients = [
     ingredientId: 23,
     name: "Tomato paste",
     photo_url:
-      "http://d3e1m60ptf1oym.cloudfront.net/45bab59a-363c-11e1-ab4e-bf4c2e0bb026/PANELA_xgaplus.jpg",
+      "https://st.depositphotos.com/1049691/2348/i/600/depositphotos_23481717-stock-photo-fresh-tomatoes-with-paste.jpg",
   },
   {
     ingredientId: 24,
@@ -495,7 +496,7 @@ export const ingredients = [
     ingredientId: 26,
     name: "Can kidney beans, rinsed and drained ",
     photo_url:
-      "https://www.seriouseats.com/images/2014/04/20140414-pile-of-beans-primary-1500x1125.jpg",
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/Kidney-beans-8496667.jpg",
   },
   {
     ingredientId: 27,
@@ -542,7 +543,7 @@ export const ingredients = [
     ingredientId: 34,
     name: "Avocado",
     photo_url:
-      "https://www.redwallpapers.com/public/redwallpapers-large-thumb/avocado-cut-stone-leaves-white-background-free-stock-photos-images-hd-wallpaper.jpg",
+      "https://media.istockphoto.com/id/94929126/photo/avocados-isolated-on-white.jpg?s=612x612&w=0&k=20&c=c0BSuWnUTAkZyj-cYHKzR5dXtZWQ1_3PXcea3M92Z4I=",
   },
   {
     ingredientId: 35,
@@ -553,7 +554,8 @@ export const ingredients = [
   {
     ingredientId: 36,
     name: "Onions",
-    photo_url: "http://www.allwhitebackground.com/images/2/2650.jpg",
+    photo_url:
+      "https://www.shutterstock.com/image-photo/red-whole-sliced-onion-isolated-260nw-1684863088.jpg",
   },
   {
     ingredientId: 37,
@@ -587,7 +589,7 @@ export const ingredients = [
     ingredientId: 42,
     name: "Butter",
     photo_url:
-      "https://redrockstoffee.com/media/2016/11/AdobeStock_76417550.jpeg",
+      "https://www.shutterstock.com/image-photo/sliced-butter-piece-on-white-260nw-1706796382.jpg",
   },
   {
     ingredientId: 43,
@@ -616,7 +618,7 @@ export const ingredients = [
     ingredientId: 47,
     name: "celery stalks",
     photo_url:
-      "https://cdn4.eyeem.com/thumb/6d1b3957c7caa9b73c3e0f820ef854b931808139-1538043742765/w/750",
+      "https://media.istockphoto.com/id/492464736/photo/fresh-celery-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=ezU7mfSslZFyzZV2yngLsaCAYOkexCMRyjdGJqyFwnA=",
   },
   {
     ingredientId: 48,
@@ -679,7 +681,7 @@ export const ingredients = [
   },
   {
     ingredientId: 58,
-    name: " fennel seed",
+    name: "fennel seed",
     photo_url:
       "https://previews.123rf.com/images/pinkomelet/pinkomelet1710/pinkomelet171000227/88851299-close-up-the-fennel-seed-on-white-background.jpg",
   },
@@ -687,7 +689,7 @@ export const ingredients = [
     ingredientId: 59,
     name: "Banana",
     photo_url:
-      "https://www.conservationmagazine.org/wp-content/uploads/2013/04/sterile-banana.jpg",
+      "https://media.istockphoto.com/id/173242750/photo/banana-bunch.jpg?s=612x612&w=0&k=20&c=MAc8AXVz5KxwWeEmh75WwH6j_HouRczBFAhulLAtRUU=",
   },
   {
     ingredientId: 60,

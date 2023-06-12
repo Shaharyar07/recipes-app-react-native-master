@@ -1,13 +1,15 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useContext } from "react";
 import { FlatList, Text, View, Image, TouchableHighlight } from "react-native";
 import styles from "./styles";
 import { categories } from "../../data/dataArrays";
-import { getNumberOfRecipes } from "../../data/MockDataAPI";
+
 import MenuImage from "../../components/MenuImage/MenuImage";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import RecipesContext from "../../DataContext/RecipesContext";
 
 export default function CategoriesScreen(props) {
   const { navigation } = props;
+  const recipes = useContext(RecipesContext);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -27,6 +29,16 @@ export default function CategoriesScreen(props) {
     });
   }, []);
 
+  const getNum = (categoryId) => {
+    let count = 0;
+    recipes.map((data) => {
+      if (data.categoryId == categoryId) {
+        count++;
+      }
+    });
+    return count;
+  };
+
   const onPressCategory = (item) => {
     const title = item.name;
     const category = item;
@@ -44,9 +56,7 @@ export default function CategoriesScreen(props) {
           source={{ uri: item.photo_url }}
         />
         <Text style={styles.categoriesName}>{item.name}</Text>
-        <Text style={styles.categoriesInfo}>
-          {getNumberOfRecipes(item.id)} recipes
-        </Text>
+        <Text style={styles.categoriesInfo}>{getNum(item.id)} recipes</Text>
       </View>
     </TouchableOpacity>
   );

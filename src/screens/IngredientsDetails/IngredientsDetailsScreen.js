@@ -1,8 +1,7 @@
-import React, { useLayoutEffect } from "react";
-import { FlatList, Text, View, Image, TouchableHighlight } from "react-native";
+import React, { useEffect, useLayoutEffect, useContext } from "react";
+import { FlatList, Text, View, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { getIngredientName, getAllIngredients } from "../../data/MockDataAPI";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function IngredientsDetailsScreen(props) {
   const { navigation, route } = props;
@@ -17,23 +16,26 @@ export default function IngredientsDetailsScreen(props) {
         fontSize: 16,
       },
     });
-  }, []);
+  }, [navigation, route.params]);
 
-  const onPressIngredient = (item) => {
-    let name = getIngredientName(item.ingredientId);
-    let ingredient = item.ingredientId;
+  const onPressIngredient = (ingredient) => {
+    let name = getIngredientName(ingredient.ingredientId);
+
     navigation.navigate("Ingredient", { ingredient, name });
   };
 
   const renderIngredient = ({ item }) => (
     <TouchableOpacity
       underlayColor="rgba(73,182,77,0.9)"
-      onPress={() => onPressIngredient(item[0])}
+      onPress={() => onPressIngredient(item.ingredient)}
     >
       <View style={styles.container}>
-        <Image style={styles.photo} source={{ uri: item[0].photo_url }} />
-        <Text style={styles.title}>{item[0].name}</Text>
-        <Text style={{ color: "grey" }}>{item[1]}</Text>
+        <Image
+          style={styles.photo}
+          source={{ uri: item.ingredient.photo_url }}
+        />
+        <Text style={styles.title}>{item.ingredient.name}</Text>
+        <Text style={{ color: "grey" }}>{item.quantity}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -46,6 +48,7 @@ export default function IngredientsDetailsScreen(props) {
         numColumns={3}
         data={ingredientsArray}
         renderItem={renderIngredient}
+        keyExtractor={(item, index) => index.toString()}
       />
     </View>
   );

@@ -3,6 +3,10 @@ import { StyleSheet, Dimensions } from "react-native";
 const { width: viewportWidth } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
+  pageBlack: {
+    backgroundColor: "black",
+    color: "#FAF9F6",
+  },
   container: {
     backgroundColor: "white",
     flex: 1,
@@ -59,11 +63,13 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
     marginRight: 0,
+    
   },
   infoRecipe: {
     fontSize: 14,
     fontWeight: "bold",
     marginLeft: 5,
+    color: "grey",
   },
   category: {
     fontSize: 14,
@@ -83,6 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "black",
     textAlign: "center",
+    color: "#2cd18a",
   },
   btnContainer: {
     flex: 1,

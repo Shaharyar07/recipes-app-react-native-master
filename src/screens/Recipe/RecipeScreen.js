@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState, useEffect, useContext } from "react";
 import {
   ScrollView,
   Text,
@@ -20,11 +20,24 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import axios from "axios";
 import { Alert } from "react-native";
 import { API_DOMAIN } from "../../../config";
+import themeContext from "../Themes/themeContext";
 
 const { width: viewportWidth } = Dimensions.get("window");
 
 export default function RecipeScreen(props) {
+  const theme = useContext(themeContext);
   const { navigation, route } = props;
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    console.log("Themes:", theme);
+    var tempTheme = theme;
+    if (tempTheme.theme === "light") {
+      setDarkMode(false);
+    } else if (tempTheme.theme === "dark") {
+      setDarkMode(true);
+    }
+  });
 
   const item = route.params?.item;
   const category = getCategoryById(item.categoryId);
@@ -80,7 +93,7 @@ export default function RecipeScreen(props) {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={[styles.container, darkMode ? styles.pageBlack : null]}>
       <View style={styles.carouselContainer}>
         <View style={styles.carousel}>
           <Carousel
@@ -102,9 +115,9 @@ export default function RecipeScreen(props) {
             dotsLength={item.photosArray.length}
             activeDotIndex={activeSlide}
             containerStyle={styles.paginationContainer}
-            dotColor="rgba(255, 255, 255, 0.92)"
+            dotColor='rgba(255, 255, 255, 0.92)'
             dotStyle={styles.paginationDot}
-            inactiveDotColor="white"
+            inactiveDotColor='white'
             inactiveDotOpacity={0.4}
             inactiveDotScale={0.6}
             carouselRef={slider1Ref.current}
@@ -151,7 +164,7 @@ export default function RecipeScreen(props) {
 
         <View style={styles.infoContainer}>
           <TouchableOpacity
-            underlayColor="rgba(73,182,77,0.9)"
+            underlayColor='rgba(73,182,77,0.9)'
             onPress={() => handleEdit(item)}
           >
             <View style={styles.btnContainerEdit}>

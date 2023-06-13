@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   ingredientInfo: {
-    color: 'black',
+    color: 'grey',
     margin: 10,
     fontSize: 19,
     textAlign: 'left',

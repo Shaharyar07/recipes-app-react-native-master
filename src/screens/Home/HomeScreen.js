@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import {
   FlatList,
   Text,
@@ -15,17 +15,29 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import axios from "axios";
 import { Picker } from "@react-native-picker/picker";
 import { API_DOMAIN } from "../../../config";
+import themeContext from "../Themes/themeContext";
 
 export default function HomeScreen(props) {
+  const theme = useContext(themeContext);
   const { navigation } = props;
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortOption, setSortOption] = useState("asc");
   const [refreshing, setRefreshing] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     fetchRecipes();
   }, []);
+  useEffect(() => {
+    console.log("Themes:", theme);
+    var tempTheme = theme;
+    if (tempTheme.theme === "light") {
+      setDarkMode(false);
+    } else if (tempTheme.theme === "dark") {
+      setDarkMode(true);
+    }
+  });
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -94,11 +106,11 @@ export default function HomeScreen(props) {
   };
 
   return (
-    <>
+    <View style={darkMode ? styles.pageBlack : null}>
       {isLoading ? (
-        <ActivityIndicator size="large" color="#0000ff" style={{ flex: 1 }} />
+        <ActivityIndicator size='large' color='#0000ff' style={{ flex: 1 }} />
       ) : (
-        <>
+        <View>
           <View style={styles.pickerContainer}>
             <Text style={styles.label}>Sort:</Text>
             <Picker
@@ -106,10 +118,10 @@ export default function HomeScreen(props) {
               style={styles.picker}
               onValueChange={onSortOptionChange}
             >
-              <Picker.Item label="A → Z" value="asc" />
-              <Picker.Item label="Z → A" value="desc" />
-              <Picker.Item label="Cooking time Ascending" value="timeasc" />
-              <Picker.Item label="Cooking time Descending" value="timedesc" />
+              <Picker.Item label='A → Z' value='asc' />
+              <Picker.Item label='Z → A' value='desc' />
+              <Picker.Item label='Cooking time Ascending' value='timeasc' />
+              <Picker.Item label='Cooking time Descending' value='timedesc' />
             </Picker>
           </View>
 
@@ -127,8 +139,8 @@ export default function HomeScreen(props) {
               />
             }
           />
-        </>
+        </View>
       )}
-    </>
+    </View>
   );
 }

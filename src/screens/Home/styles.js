@@ -16,10 +16,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginRight: 10,
+    color: "grey",
   },
   picker: {
     flex: 1,
     height: 40,
+    color: "grey",
+  },
+  pageBlack: {
+    backgroundColor: "black",
+    color: "#FAF9F6",
   },
 });
 

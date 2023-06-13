@@ -170,21 +170,22 @@ const AddRecipe = ({ navigation }) => {
   return (
     <>
       {isLoading ? (
-        <ActivityIndicator size="large" color="#0000ff" style={{ flex: 1 }} />
+        <ActivityIndicator size='large' color='#0000ff' style={{ flex: 1 }} />
       ) : (
         <ScrollView
           contentContainerStyle={[
             styles.scrollContent,
             { paddingBottom: keyboardOffset },
           ]}
-          keyboardShouldPersistTaps="handled"
+          keyboardShouldPersistTaps='handled'
         >
           <View style={styles.container}>
             <Text style={styles.label}>Recipe Name</Text>
 
             <TextInput
               style={styles.input}
-              placeholder="Recipe Title"
+              placeholder='Recipe Title'
+              placeholderTextColor='lightgrey'
               value={recipe.title}
               onChangeText={(value) => handleInputChange("title", value)}
             />
@@ -195,7 +196,7 @@ const AddRecipe = ({ navigation }) => {
               style={styles.picker}
               onValueChange={(value) => handleCategoryChange(value)}
             >
-              <Picker.Item label="Select Category" value="" />
+              <Picker.Item label='Select Category' value='' />
               {categoryOptions.map((category) => (
                 <Picker.Item
                   key={category.id}
@@ -213,13 +214,13 @@ const AddRecipe = ({ navigation }) => {
                   style={styles.thumbnail}
                 />
                 <Button
-                  title="Select Primary Photo"
+                  title='Select Primary Photo'
                   onPress={handlePrimaryPhotoSelect}
                 />
               </>
             ) : (
               <Button
-                title="Select Primary Photo"
+                title='Select Primary Photo'
                 onPress={handlePrimaryPhotoSelect}
               />
             )}
@@ -245,7 +246,7 @@ const AddRecipe = ({ navigation }) => {
             ))}
 
             <TouchableHighlight
-              underlayColor="rgba(73,182,77,0.9)"
+              underlayColor='rgba(73,182,77,0.9)'
               onPress={() => {
                 const updatedPhotos = [...recipe.photosArray, ""];
                 handleInputChange("photosArray", updatedPhotos);
@@ -260,10 +261,11 @@ const AddRecipe = ({ navigation }) => {
             <Text style={styles.label}>Time to Make In Minutes</Text>
             <TextInput
               style={styles.input}
-              placeholder="Time"
+              placeholder='Time'
               value={recipe.time}
+              placeholderTextColor='lightgrey'
               onChangeText={(value) => handleTimeToMake(value)}
-              keyboardType="numeric"
+              keyboardType='numeric'
             />
 
             <Text style={styles.label}>Select Ingredients</Text>
@@ -276,7 +278,7 @@ const AddRecipe = ({ navigation }) => {
                     handleIngredientChange(index, value)
                   }
                 >
-                  <Picker.Item label="Select Ingredient" value="" />
+                  <Picker.Item label='Select Ingredient' value='' />
                   {ingredientsList.map((ingredient) => (
                     <Picker.Item
                       key={ingredient.ingredientId}
@@ -288,15 +290,16 @@ const AddRecipe = ({ navigation }) => {
 
                 <TextInput
                   style={styles.quantityInput}
-                  placeholder="Quantity"
+                  placeholder='Quantity'
                   value={ingredient.quantity}
+                  placeholderTextColor='lightgrey'
                   onChangeText={(value) => handleQuantityChange(index, value)}
                 />
               </View>
             ))}
 
             <TouchableHighlight
-              underlayColor="rgba(73,182,77,0.9)"
+              underlayColor='rgba(73,182,77,0.9)'
               onPress={() => {
                 const updatedIngredients = [
                   ...recipe.ingredients,
@@ -315,8 +318,9 @@ const AddRecipe = ({ navigation }) => {
               <Text style={styles.label}>Add Description</Text>
               <TextInput
                 style={styles.input}
-                placeholder="Description"
+                placeholder='Description'
                 value={recipe.description}
+                placeholderTextColor='lightgrey'
                 onChangeText={(value) =>
                   handleInputChange("description", value)
                 }
@@ -324,7 +328,7 @@ const AddRecipe = ({ navigation }) => {
               />
             </View>
             <TouchableHighlight
-              underlayColor="rgba(73,182,77,0.9)"
+              underlayColor='rgba(73,182,77,0.9)'
               onPress={handleSubmit}
               style={styles.buttonContainer}
             >
@@ -368,7 +372,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontWeight: "bold",
     fontSize: 18,
-    color: "#000",
+    color: "grey",
   },
 
   container: {
@@ -382,17 +386,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 4,
+    color: "grey",
   },
   picker: {
     marginBottom: 8,
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 4,
+    color: "grey",
   },
   ingredientContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 8,
+    backgroundColor: "grey",
   },
   ingredientPicker: {
     flex: 3,
